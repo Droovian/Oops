@@ -8,7 +8,7 @@ using namespace std;
 3. ofstream --> derived from fstreambase
 */
 
-// In order to wrok with files in c++, you will have to open it. Primarily, this can be done with:
+// In order to work with files in c++, you will have to open it. Primarily, this can be done with:
 // 1. Using the constructor
 // 2. Using the member function open() of the class
 int main(){
