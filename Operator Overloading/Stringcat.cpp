@@ -1,46 +1,45 @@
 #include<iostream>
 #include <string>
 #include <cstring>
-using namespace std;
 
 class String{
 int len;
-char *p;
+char *ptr;
 
 public:
     String(){
         len = 0;
-        p = 0;
+        ptr = 0;
     }
-    String(char *str){
+    String(const char *str){
         len = strlen(str);
-        p = new char[len+1];
-        strcpy(p, str);
+        ptr = new char[len+1];
+        strcpy(ptr, str);
     }
 
-    String(String &s){
+    String(const String &s){
         len = s.len;
-        p = new char[len+1];
-        strcpy(p, s.p);
+        ptr = new char[len+1];
+        strcpy(ptr, s.ptr);
     }
 
     // the main overloading part
 
-    friend String operator+(String &, String &);
-    friend void display(String &s);
+    friend String operator+(const String &, const String &);
+    friend void display(const String &s);
 };
 
-void display(String &s){
+void display(const String &s){
 
-    cout << s.p << "\n";
+    std::cout << s.ptr << "\n";
 
 }
-String operator+(String &s1, String &s2){
+String operator+(const String &s1, const String &s2){
     String temp;
     temp.len = s1.len + s2.len;
-    temp.p = new char[temp.len + 1];
-    strcpy(temp.p, s1.p);
-    strcat(temp.p, s2.p);
+    temp.ptr = new char[temp.len + 1];
+    strcpy(temp.ptr, s1.ptr);
+    strcat(temp.ptr, s2.ptr);
     return (temp);
 }
 
